@@ -1,0 +1,18 @@
+<h1>creating a profile for user</h1>
+<%= form_with model: @profile, local: true do |form| %>
+<div class = "py-3">
+    <%= form.label :UserName %>
+    <%= form.select :user_id, options_from_collection_for_select(@users, 'id', 'username'), { prompt: "Choose a user", style: "display: block;" } %>
+</div>
+
+</div>
+<div class = "py-3">
+    <%= form.label :usertype %>
+    <%= form.select :usertype, Profile.usertypes.keys.map { |usertype| [usertype.titleize, usertype] }, prompt: "Select User Type" %>
+</div>
+
+<div>
+    <%= form.submit "create Profile" %>
+</div>
+<% end %>
+

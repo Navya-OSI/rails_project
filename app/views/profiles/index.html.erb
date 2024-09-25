@@ -1,0 +1,17 @@
+<table class = "table table-striped",  style = "width: 50%">
+    <thead class = " thead thead-dark">
+        <tr>
+            <th>Username</th>
+            <th>userType</th>           
+        </tr>
+    </thead>
+    <tbody>
+            <% @profiles.each do |profile| %>
+                <tr class = "tr">
+                    <td><%=profile.user.username %></td>
+                    <td><%=profile.usertype %></td>
+                </tr>
+            <% end %>
+    </tbody>
+</table>
+
