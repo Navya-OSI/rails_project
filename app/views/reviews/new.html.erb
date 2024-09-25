@@ -1,0 +1,15 @@
+<h1>Please give a review for our products</h1>
+<%= form_with model: @review, local: true do |form| %>
+<div class="py-3">
+    <%= form.select :product_id, options_from_collection_for_select(@products, 'productId', 'productName'), { prompt: "Choose a product" }, style: "display: block;" %>
+  </div>
+  
+<div class = "py-3">
+    <%= form.label :comment, "comment" %>
+    <%= form.text_field :comment,{ promt: "Leave a Comment Here" } %>
+</div>
+
+<div>
+    <%= form.submit "Save Review" %>
+</div>
+<% end %>

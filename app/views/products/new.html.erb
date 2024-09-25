@@ -1,0 +1,18 @@
+<%= form_with model: @product, id: 'productForm', local: true do |form| %> 
+  <div>
+    <%= form.label :productId, "Product ID" %>
+    <%= form.text_field :productId %> 
+    <br>
+  </div>
+  <div>
+    <%= form.label :productName, "Product Name" %>
+    <%= form.text_field :productName %> 
+    <br>
+  </div>
+  <div>
+    <%= form.label :productDescription, "Product Description" %>
+    <%= form.text_field :productDescription %>
+  </div>
+  <%= button_tag "Register Product" %>
+<% end %>
+

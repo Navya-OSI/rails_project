@@ -1,0 +1,15 @@
+button {
+    color: green;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+input{
+    color: black;
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: block;
+}
+label{
+    color: blue;
+}
+

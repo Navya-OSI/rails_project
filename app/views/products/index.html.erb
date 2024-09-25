@@ -1,0 +1,36 @@
+<%= link_to 'All Products',products_path, class: 'btn btn-primary float-right ml-2', style: "color: black" %>
+<%= link_to 'New Product', new_product_path, class: 'btn btn-primary float-right ml-2', style: "color: black" %>
+<% if user_signed_in? %>
+  <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-primary float-right', style: "color: black" %>
+<% end %>
+<br>
+<br>
+<table class = "table table-striped",  style = "width: 50%">
+    <thead class = " thead thead-dark">
+        <tr>
+            <th>productId</th>
+            <th>productName</th>
+            <th>productDescription</th>
+            <th>Product Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+            <% @products.each do |product| %>
+                <tr class = "tr">
+                    <td> <%=link_to product.productId, product_path(product) %> </td>
+                    <td> <%= product.productName %> </td>
+                    <td> <%= product.productDescription %> </td>
+                    <td>
+                        <% if product.reviews.any? %>
+                          <% product.reviews.each do |review| %>
+                            <p><%= review.comment %></p>
+                          <% end %>
+                        <% else %>
+                          No reviews yet
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+    </tbody>
+</table>
+
