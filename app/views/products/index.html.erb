@@ -12,6 +12,7 @@
             <th>productName</th>
             <th>productDescription</th>
             <th>Product Comment</th>
+            <th>Updated By</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
                           <% end %>
                         <% else %>
                           No reviews yet
+                    <td> <%= product.user_id %> </td>
                         <% end %>
                     </td>
                 </tr>

@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   
   def index
+        @users = User.all
         @products = Product.all
   end
 
@@ -12,7 +13,8 @@ class ProductsController < ApplicationController
   def create 
     @product = Product.new(product_params)
     if @product.save
-      flash[:notice] = 'Product was Successfully registered'
+      # incorporating job in controller that means enqueing a job
+      SimpleJob.perform_now('world');
       redirect_to products_path
     else
       flash[:alert] = 'Unable to register Product'
@@ -29,6 +31,10 @@ class ProductsController < ApplicationController
     end
   end
 
+
+  def update
+    
+  end
 
   private
   def product_params
