@@ -8,7 +8,8 @@
     <tbody>
             <% @profiles.each do |profile| %>
                 <tr class = "tr">
-                    <td><%=profile.user.username %></td>
+                    <!-- have to use the safe navigation operator to check the user presence when profile was created -->
+                    <td><%= profile.user&.username || 'No User' %></td>
                     <td><%=profile.usertype %></td>
                 </tr>
             <% end %>
