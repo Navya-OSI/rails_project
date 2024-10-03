@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save
       # incorporating job in controller that means enqueing a job
+      #it was using the active job only
       SimpleJob.perform_now('world');
       redirect_to products_path
     else
